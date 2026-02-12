@@ -57,6 +57,13 @@ exports.handler = async (event) => {
         const contactId = contactResult.id;
         console.log(`[Bolten Sync] Contato OK. ID: ${contactId}`);
 
+        // Lógica de Qualificação e Prioridade
+        // Critério: Urgência "Imediata" (value="Imediata") AND Renda > 35k (value="+35k")
+        let priority = "Média";
+        if (leadData.urgency === "Imediata" && leadData.income === "+35k") {
+            priority = "Alta";
+        }
+
         // PASSO 2: Criar Oportunidade vinculada ao Contato
         const opportunityUrl = `https://app.bolten.io/kanban/api/v1/${OPPORTUNITY_MODULE_ID}/opportunities`;
 
@@ -64,11 +71,13 @@ exports.handler = async (event) => {
             attributes: {
                 "Contato": contactId,
                 "Status": "Novo contato",
+                "Prioridade": priority,
+                "Produto": "Ipanema",
                 "Observação": `Origem: ${leadData.source || 'Site'} | Renda: ${leadData.income || 'N/A'}`
             }
         };
 
-        console.log("[Bolten Sync] Passo 2: Criando Oportunidade...");
+        console.log(`[Bolten Sync] Passo 2: Criando Oportunidade com Prioridade ${priority}...`);
         const oppRes = await fetch(opportunityUrl, {
             method: 'POST',
             headers: {
