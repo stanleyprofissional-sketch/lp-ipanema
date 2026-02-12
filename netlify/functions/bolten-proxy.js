@@ -63,7 +63,7 @@ exports.handler = async (event) => {
         const opportunityPayload = {
             attributes: {
                 "Contato": contactId,
-                "Status": leadData.status || "Novo Lead",
+                "Status": "Novo contato",
                 "Observação": `Origem: ${leadData.source || 'Site'} | Renda: ${leadData.income || 'N/A'}`
             }
         };
