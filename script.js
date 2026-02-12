@@ -125,14 +125,6 @@ function initForms() {
                     openQuizModal();
                     leadForm.reset();
                     if (window.fbq) window.fbq('track', 'Lead'); // Facebook Pixel
-
-                    // Sync to Bolten CRM (Background)
-                    syncToBolten({
-                        name: currentLeadData.name,
-                        phone: currentLeadData.phone,
-                        source: 'Landing Page Ipanema',
-                        status: 'Lead Inicial'
-                    });
                 } else {
                     throw new Error('Erro no envio');
                 }
