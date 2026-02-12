@@ -23,7 +23,7 @@ exports.handler = async (event) => {
                 "Nome": leadData.name,
                 "Telefone": leadData.phone,
                 "Urgência": leadData.urgency || "Não informado",
-                "Observação": leadData.income ? `Renda: ${leadData.income}` : ""
+                "Renda": leadData.income || "Não informado"
             }
         };
 
