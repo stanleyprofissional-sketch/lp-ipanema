@@ -125,6 +125,14 @@ function initForms() {
                     openQuizModal();
                     leadForm.reset();
                     if (window.fbq) window.fbq('track', 'Lead'); // Facebook Pixel
+
+                    // Sync to Bolten CRM (Background)
+                    syncToBolten({
+                        name: currentLeadData.name,
+                        phone: currentLeadData.phone,
+                        source: 'Landing Page Ipanema',
+                        status: 'Lead Inicial'
+                    });
                 } else {
                     throw new Error('Erro no envio');
                 }
@@ -172,6 +180,15 @@ function initForms() {
                     // Success: Show Success Step
                     showQuizSuccess();
                     if (window.fbq) window.fbq('track', 'CompleteRegistration');
+
+                    // Sync to Bolten CRM (Update with Quiz Data)
+                    syncToBolten({
+                        name: currentLeadData.name,
+                        phone: currentLeadData.phone,
+                        urgency: formData.get('urgency'),
+                        income: formData.get('income'),
+                        status: 'Lead Qualificado'
+                    });
                 } else {
                     throw new Error('Erro no envio');
                 }
@@ -238,3 +255,28 @@ document.addEventListener('keydown', (e) => {
         closeQuizModal();
     }
 });
+
+// ==========================================
+// Bolten.io CRM Integration
+// ==========================================
+
+async function syncToBolten(data) {
+    try {
+        console.log('Sincronizando com Bolten.io...');
+        const response = await fetch('/.netlify/functions/bolten-proxy', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            console.log('Sucesso Bolten.io:', result.message);
+        } else {
+            console.warn('Aviso Bolten.io:', result.error);
+        }
+    } catch (error) {
+        // We log but don't break the UI if CRM sync fails
+        console.error('Erro na sincronização CRM:', error);
+    }
+}
