@@ -1,72 +1,89 @@
 // Usando o Global Fetch disponível no Node 18+ da Netlify
 exports.handler = async (event) => {
-    // Only allow POST
     if (event.httpMethod !== "POST") {
         return { statusCode: 405, body: "Method Not Allowed" };
     }
 
     try {
         const leadData = JSON.parse(event.body);
-        const BOLTEN_API_KEY = process.env.BOLTEN_API_KEY;
+        const BOLTEN_API_KEY = process.env.BOLTEN_API_KEY || "ODFmNzI2MmQtNGNmMi00YmVjLWI0YjYtNzY1NjQ1MTlmZTA3OmFOUHpjK1kzQ3pwclM4N1dpTFNBSkE9PQ==";
 
-        if (!BOLTEN_API_KEY) {
-            console.error("ERRO: BOLTEN_API_KEY não encontrada nas variáveis de ambiente da Netlify.");
-            return {
-                statusCode: 500,
-                body: JSON.stringify({ error: "Configuração BOLTEN_API_KEY ausente na Netlify." })
-            };
-        }
+        // IDs dos Módulos (obtidos via script de teste)
+        const CONTACT_MODULE_ID = "7e26b6a5-fcad-4425-a011-20d894df5259";
+        const OPPORTUNITY_MODULE_ID = "b2cc4ed3-fc6d-4493-8af1-41b4ae42db1b";
 
-        // Endpoint padrão para criação de oportunidades
-        const BOLTEN_ENDPOINT = 'https://api.bolten.io/api/v1/opportunities';
+        console.log(`[Bolten Sync] Iniciando para: ${leadData.name || leadData.phone}`);
 
-        console.log(`[Bolten Sync] Iniciando sincronização para: ${leadData.name || 'Sem Nome'}`);
-        console.log(`[Bolten Sync] Endpoint: ${BOLTEN_ENDPOINT}`);
+        // PASSO 1: Criar ou Atualizar Contato
+        // O Bolten identifica por telefone/email se configurado, ou cria novo.
+        const contactUrl = `https://app.bolten.io/contact/api/v1/${CONTACT_MODULE_ID}/contacts`;
 
-        const response = await fetch(BOLTEN_ENDPOINT, {
+        const contactPayload = {
+            attributes: {
+                "Nome": leadData.name,
+                "Telefone": leadData.phone,
+                "Urgência": leadData.urgency || "Não informado",
+                "Observação": leadData.income ? `Renda: ${leadData.income}` : ""
+            }
+        };
+
+        console.log("[Bolten Sync] Passo 1: Criando/Atualizando Contato...");
+        const contactRes = await fetch(contactUrl, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${BOLTEN_API_KEY}`,
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Content-Type': 'application/json'
             },
-            body: JSON.stringify(leadData)
+            body: JSON.stringify(contactPayload)
         });
 
-        const status = response.status;
-        const result = await response.json();
+        const contactResult = await contactRes.json();
 
-        console.log(`[Bolten Sync] Status da Resposta: ${status}`);
-
-        if (!response.ok) {
-            console.error("[Bolten Sync] Erro retornado pela API:", result);
-            return {
-                statusCode: status,
-                body: JSON.stringify({
-                    error: "Erro na API do Bolten",
-                    status: status,
-                    details: result
-                })
-            };
+        if (!contactRes.ok) {
+            console.error("[Bolten Sync] Erro Passo 1 (Contato):", contactResult);
+            return { statusCode: contactRes.status, body: JSON.stringify({ error: "Erro ao criar contato", details: contactResult }) };
         }
 
-        console.log("[Bolten Sync] Sucesso:", result);
+        const contactId = contactResult.id;
+        console.log(`[Bolten Sync] Contato OK. ID: ${contactId}`);
+
+        // PASSO 2: Criar Oportunidade vinculada ao Contato
+        const opportunityUrl = `https://app.bolten.io/kanban/api/v1/${OPPORTUNITY_MODULE_ID}/opportunities`;
+
+        const opportunityPayload = {
+            attributes: {
+                "Contato": contactId,
+                "Status": leadData.status || "Novo Lead",
+                "Observação": `Origem: ${leadData.source || 'Site'} | Renda: ${leadData.income || 'N/A'}`
+            }
+        };
+
+        console.log("[Bolten Sync] Passo 2: Criando Oportunidade...");
+        const oppRes = await fetch(opportunityUrl, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${BOLTEN_API_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(opportunityPayload)
+        });
+
+        const oppResult = await oppRes.json();
+
+        if (!oppRes.ok) {
+            console.error("[Bolten Sync] Erro Passo 2 (Oportunidade):", oppResult);
+            // Mesmo se falhar a oportunidade, o contato foi criado.
+            return { statusCode: oppRes.status, body: JSON.stringify({ error: "Contato criado, mas falha na oportunidade", details: oppResult }) };
+        }
+
+        console.log("[Bolten Sync] Sucesso Total!");
         return {
             statusCode: 200,
-            body: JSON.stringify({
-                message: "Lead sincronizado com sucesso!",
-                id: result.id || result.opportunity_id
-            })
+            body: JSON.stringify({ message: "Lead e Oportunidade sincronizados!", contact_id: contactId, opportunity_id: oppResult.id })
         };
 
     } catch (error) {
-        console.error("[Bolten Sync] Erro crítico na Function:", error.message);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({
-                error: "Erro interno ao processar lead",
-                message: error.message
-            })
-        };
+        console.error("[Bolten Sync] Erro Crítico:", error.message);
+        return { statusCode: 500, body: JSON.stringify({ error: "Erro interno", message: error.message }) };
     }
 };
