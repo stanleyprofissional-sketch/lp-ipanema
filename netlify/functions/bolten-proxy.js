@@ -1,5 +1,4 @@
-const fetch = require('node-fetch');
-
+// Usando o Global Fetch disponível no Node 18+ da Netlify
 exports.handler = async (event) => {
     // Only allow POST
     if (event.httpMethod !== "POST") {
@@ -11,21 +10,19 @@ exports.handler = async (event) => {
         const BOLTEN_API_KEY = process.env.BOLTEN_API_KEY;
 
         if (!BOLTEN_API_KEY) {
-            console.error("ERRO: BOLTEN_API_KEY não configurada nas variáveis de ambiente.");
+            console.error("ERRO: BOLTEN_API_KEY não encontrada nas variáveis de ambiente da Netlify.");
             return {
                 statusCode: 500,
-                body: JSON.stringify({ error: "Configuração do CRM ausente." })
+                body: JSON.stringify({ error: "Configuração BOLTEN_API_KEY ausente na Netlify." })
             };
         }
 
-        // Bolten API endpoint (standard opportunities endpoint)
-        // Note: The specific domain/endpoint might vary, but usually it's api.bolten.io/v1/opportunities
+        // Endpoint padrão para criação de oportunidades
         const BOLTEN_ENDPOINT = 'https://api.bolten.io/api/v1/opportunities';
 
-        console.log("Enviando lead para Bolten:", leadData.name || leadData.email || leadData.phone);
+        console.log(`[Bolten Sync] Iniciando sincronização para: ${leadData.name || 'Sem Nome'}`);
+        console.log(`[Bolten Sync] Endpoint: ${BOLTEN_ENDPOINT}`);
 
-        // Map frontend fields (if necessary) to Bolten fields
-        // Bolten fields are dynamic, so we send the object as is, assuming field names match
         const response = await fetch(BOLTEN_ENDPOINT, {
             method: 'POST',
             headers: {
@@ -36,26 +33,40 @@ exports.handler = async (event) => {
             body: JSON.stringify(leadData)
         });
 
+        const status = response.status;
         const result = await response.json();
 
+        console.log(`[Bolten Sync] Status da Resposta: ${status}`);
+
         if (!response.ok) {
-            console.error("Erro Bolten API:", result);
+            console.error("[Bolten Sync] Erro retornado pela API:", result);
             return {
-                statusCode: response.status,
-                body: JSON.stringify({ error: "Erro ao sincronizar com CRM", details: result })
+                statusCode: status,
+                body: JSON.stringify({
+                    error: "Erro na API do Bolten",
+                    status: status,
+                    details: result
+                })
             };
         }
 
+        console.log("[Bolten Sync] Sucesso:", result);
         return {
             statusCode: 200,
-            body: JSON.stringify({ message: "Lead sincronizado com sucesso!", id: result.id })
+            body: JSON.stringify({
+                message: "Lead sincronizado com sucesso!",
+                id: result.id || result.opportunity_id
+            })
         };
 
     } catch (error) {
-        console.error("Erro na Function bolten-proxy:", error);
+        console.error("[Bolten Sync] Erro crítico na Function:", error.message);
         return {
             statusCode: 500,
-            body: JSON.stringify({ error: "Erro interno no servidor" })
+            body: JSON.stringify({
+                error: "Erro interno ao processar lead",
+                message: error.message
+            })
         };
     }
 };
