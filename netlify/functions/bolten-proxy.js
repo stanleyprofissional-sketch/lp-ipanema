@@ -6,6 +6,16 @@ exports.handler = async (event) => {
 
     try {
         const leadData = JSON.parse(event.body);
+
+        // TRAVA DE SEGURANÇA: Só processa se tiver dados de qualificação
+        if (!leadData.urgency || !leadData.income) {
+            console.log(`[Bolten Sync] Ignorando lead (${leadData.name || 'Sem Nome'}): Faltam dados de qualificação (Urgência/Renda).`);
+            return {
+                statusCode: 200,
+                body: JSON.stringify({ message: "Lead ignorado por falta de qualificação." })
+            };
+        }
+
         const BOLTEN_API_KEY = process.env.BOLTEN_API_KEY || "ODFmNzI2MmQtNGNmMi00YmVjLWI0YjYtNzY1NjQ1MTlmZTA3OmFOUHpjK1kzQ3pwclM4N1dpTFNBSkE9PQ==";
 
         // IDs dos Módulos (obtidos via script de teste)
