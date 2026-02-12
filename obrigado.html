@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado! | Edifício Ipanema</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .thank-you-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-bg);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .thank-you-content {
+            max-width: 600px;
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            color: var(--color-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .thank-you-title {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .thank-you-text {
+            font-size: 1.125rem;
+            color: var(--color-text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .countdown {
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+    </style>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div class="thank-you-page">
+        <div class="thank-you-content">
+            <div class="thank-you-icon">
+                <i class="ph ph-check-circle"></i>
+            </div>
+            <h1 class="thank-you-title">Recebemos seus dados!</h1>
+            <p class="thank-you-text">
+                Obrigado pelo interesse no Edifício Ipanema. Em breve, nosso especialista entrará em contato pelo
+                WhatsApp.<br><br>
+                Você será redirecionado para a página inicial em <span id="countdown">10</span> segundos...
+            </p>
+            <a href="/" class="btn btn--primary" id="btn-home">Voltar para o Início</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let count = 10;
+            const countdownEl = document.getElementById('countdown');
+            const linkDestino = '/';
+
+            const timer = setInterval(() => {
+                count--;
+                if (countdownEl) countdownEl.textContent = count;
+                if (count <= 0) {
+                    clearInterval(timer);
+                    window.location.href = linkDestino;
+                }
+            }, 1000);
+
+            // Meta Pixel (CompleteRegistration)
+            if (typeof fbq === 'function') {
+                fbq('track', 'CompleteRegistration');
+            }
+        });
+    </script>
+</body>
+
+</html>

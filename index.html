@@ -24,6 +24,9 @@
 
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.10/build/css/intlTelInput.css">
 </head>
 
 <body>
@@ -68,7 +71,7 @@
     <!-- Section 2: Para Quem é (Constraint: Grid Clean) -->
     <section class="section section--light" id="para-quem">
         <div class="container">
-            <div class="grid-split">
+            <div class="grid-split grid-split--image-left">
                 <div class="split__content" data-aos="fade-up" data-aos-duration="1000">
                     <span class="section__tag">Seu Novo Estilo de Vida</span>
                     <h2 class="section__title">O Lar Que Você e Sua Família Merecem</h2>
@@ -155,16 +158,19 @@
         <div class="container">
             <div class="section__header" data-aos="fade-up">
                 <span class="section__tag">Detalhes Exclusivos</span>
-                <h2 class="section__title">Sofisticação e Espaço em Cada Detalhe</h2>
+                <h2 class="section__title">Sofisticação em Cada Detalhe</h2>
             </div>
 
             <div class="bento-grid">
                 <!-- Card 1: Destaque (Span 2) -->
                 <div class="bento-card bento-card--large" data-aos="fade-up" data-aos-delay="100">
+                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop"
+                        alt="Sala ampla" class="bento-bg" loading="lazy" width="1200" height="800">
+                    <div class="bento-overlay"></div>
                     <div class="bento-icon">
                         <i class="ph ph-arrows-out-cardinal"></i>
                     </div>
-                    <div class="bento-content">
+                    <div class="bento-content relative">
                         <h3>167m² de área privativa</h3>
                         <p>Amplo espaço interno distribuído inteligentemente para maximizar o conforto da sua família.
                         </p>
@@ -173,10 +179,13 @@
 
                 <!-- Card 2 -->
                 <div class="bento-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1616594039964-40891a909d9e?q=80&w=800&auto=format&fit=crop"
+                        alt="Suíte master" class="bento-bg" loading="lazy" width="800" height="600">
+                    <div class="bento-overlay"></div>
                     <div class="bento-icon">
                         <i class="ph ph-bed"></i>
                     </div>
-                    <div class="bento-content">
+                    <div class="bento-content relative">
                         <h3>3 Suítes plenas + 1 quarto</h3>
                         <p>Privacidade e conforto para todos os membros da família.</p>
                     </div>
@@ -184,10 +193,13 @@
 
                 <!-- Card 3 -->
                 <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=800&auto=format&fit=crop"
+                        alt="Varanda" class="bento-bg" loading="lazy" width="800" height="600">
+                    <div class="bento-overlay"></div>
                     <div class="bento-icon">
                         <i class="ph ph-armchair"></i>
                     </div>
-                    <div class="bento-content">
+                    <div class="bento-content relative">
                         <h3>Varanda Integrada</h3>
                         <p>Na sala e no quarto principal, conectando você ao exterior.</p>
                     </div>
@@ -195,10 +207,13 @@
 
                 <!-- Card 4 -->
                 <div class="bento-card" data-aos="fade-up" data-aos-delay="400">
+                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=800&auto=format&fit=crop"
+                        alt="Garagem" class="bento-bg" loading="lazy" width="800" height="600">
+                    <div class="bento-overlay"></div>
                     <div class="bento-icon">
                         <i class="ph ph-car"></i>
                     </div>
-                    <div class="bento-content">
+                    <div class="bento-content relative">
                         <h3>3 Vagas + Depósito</h3>
                         <p>Comodidade total para seus veículos e itens extras.</p>
                     </div>
@@ -206,10 +221,13 @@
 
                 <!-- Card 5 -->
                 <div class="bento-card" data-aos="fade-up" data-aos-delay="500">
+                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=800&auto=format&fit=crop"
+                        alt="Cozinha" class="bento-bg" loading="lazy" width="800" height="600">
+                    <div class="bento-overlay"></div>
                     <div class="bento-icon">
                         <i class="ph ph-cooking-pot"></i>
                     </div>
-                    <div class="bento-content">
+                    <div class="bento-content relative">
                         <h3>Cozinha Espaçosa + DCE</h3>
                         <p>Funcionalidade completa para o dia a dia e serviço.</p>
                     </div>
@@ -376,8 +394,17 @@
                             <i class="ph ph-map-pin"></i>
                         </div>
                         <div class="location-info">
+                            <strong>Endereço Nobre</strong>
+                            <span>R. Epaminondas C. Branco, 969 - Jockey Club</span>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="ph ph-path"></i>
+                        </div>
+                        <div class="location-info">
                             <strong>Av. Jóquei Clube</strong>
-                            <span>20m (1 min a pé)</span>
+                            <span>A apenas 20m (1 min a pé)</span>
                         </div>
                     </div>
                     <div class="location-item">
@@ -394,8 +421,8 @@
                             <i class="ph ph-shopping-cart"></i>
                         </div>
                         <div class="location-info">
-                            <strong>Supermercados</strong>
-                            <span>Carvalho Super / Pão de Açúcar (2 min de carro)</span>
+                            <strong>Assaí Atacadista</strong>
+                            <span>Próximo (2 min de carro)</span>
                         </div>
                     </div>
                     <div class="location-item">
@@ -403,22 +430,31 @@
                             <i class="ph ph-fork-knife"></i>
                         </div>
                         <div class="location-info">
-                            <strong>Melhores Restaurantes</strong>
-                            <span>Coco Bambu / Favorito (3 min de carro)</span>
+                            <strong>Coco Bambu e Restaurantes</strong>
+                            <span>Os melhores da cidade (3 min de carro)</span>
+                        </div>
+                    </div>
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="ph ph-first-aid-kit"></i>
+                        </div>
+                        <div class="location-info">
+                            <strong>Farmácias e Academias</strong>
+                            <span>Diversas opções no entorno</span>
                         </div>
                     </div>
 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Rua+Epaminondas+Castelo+Branco,+Teresina"
+                    <a href="https://www.google.com/maps/place/Condom%C3%ADnio+Ipanema/@-5.072639,-42.791676,15z"
                         target="_blank" class="btn btn--primary btn--outline">
                         Abrir no Google Maps
                         <i class="ph ph-arrow-up-right"></i>
                     </a>
                 </div>
 
-                <!-- Mapa Embed -->
+                <!-- Mapa Google Maps -->
                 <div class="location-map" data-aos="fade-left">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.269666270594!2d-42.79374092414708!3d-5.059475452656372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x78e390119777175%3A0x675306660143899f!2sR.%20Epaminondas%20Castelo%20Branco%20-%20Jockey%2C%20Teresina%20-%20PI!5e0!3m2!1sen!2sbr!4v1707746400000!5m2!1sen!2sbr"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7948.383612598257!2d-42.791676305559115!3d-5.072639179616564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x78e3b001b61cc8d%3A0xbdd4f59ca7534619!2sCondom%C3%ADnio%20Ipanema!5e0!3m2!1spt-BR!2sbr!4v1770845676160!5m2!1spt-BR!2sbr"
                         width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
@@ -427,54 +463,89 @@
         </div>
     </section>
 
-    <!-- Section 7: Investimento e Depoimentos -->
+    <!-- Section 7: Investimento -->
     <section class="section" id="investimento">
         <div class="container container--narrow">
+            <div class="section__header" data-aos="fade-up">
+                <h2 class="section__title" style="text-align:center;">Investimento com Pagamento Facilitado</h2>
+            </div>
+
             <div class="investment-card" data-aos="zoom-in">
-                <span class="investment-tag">Oportunidade Única</span>
+                <span class="investment-tag">Oportunidade Exclusiva</span>
                 <h2 class="investment-price">R$ 1.690.000,00</h2>
                 <div class="investment-features">
+                    <span><i class="ph ph-hand-coins"></i> Entrada Facilitada (negociável)</span>
                     <span><i class="ph ph-bank"></i> Financiamento Bancário</span>
-                    <span><i class="ph ph-hand-coins"></i> Entrada Facilitada</span>
+                    <span><i class="ph ph-file-text"></i> Documentação 100% Regularizada</span>
+                    <span><i class="ph ph-seal-check"></i> Imóvel Novo - Primeiro Dono</span>
                 </div>
-                <a href="#contato" class="btn btn--primary btn--lg">Solicitar Simulação</a>
             </div>
 
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                <i class="ph ph-quotes quote-icon"></i>
-                <p class="testimonial-text">"Morar no Edifício Ipanema foi a melhor decisão para minha família. A
-                    localização é imbatível e a área de lazer é completa. Nos sentimos em um resort todos os dias."</p>
-                <div class="testimonial-author">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100&auto=format&fit=crop"
-                        alt="Ricardo Silva" loading="lazy">
-                    <div>
-                        <strong>Ricardo Silva</strong>
-                        <span>Morador desde 2023</span>
+            <div class="investment-form" data-aos="fade-up" data-aos-delay="150">
+                <h3 class="investment-form__title">Agende sua Visita Exclusiva</h3>
+                <p class="investment-form__desc">Preencha seus dados para agendar visita ou falar com o corretor.</p>
+                <form id="lead-form" name="lead-ipanema" method="POST" action="/obrigado.html" data-netlify="true"
+                    netlify-honeypot="bot-field" class="investment-form__form" data-form>
+
+                    <!-- OBRIGATÓRIO para AJAX -->
+                    <input type="hidden" name="form-name" value="lead-ipanema">
+
+                    <!-- Honeypot -->
+                    <p hidden><label>Não preencha: <input name="bot-field"></label></p>
+
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Seu Nome" required autocomplete="name">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone" required autocomplete="tel">
+                    </div>
+
+                    <div class="form-feedback"></div>
+
+                    <button type="submit" class="btn btn--primary btn--lg btn--full">
+                        Agendar Visita
+                        <i class="ph ph-arrow-right"></i>
+                    </button>
+                </form>
             </div>
 
-            <div class="faq-section" data-aos="fade-up" data-aos-delay="400">
+            <div class="faq-section" data-aos="fade-up" data-aos-delay="200">
                 <h3 class="faq-title">Perguntas Frequentes</h3>
                 <div class="accordion">
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            Quando será a entrega do empreendimento?
+                            O apartamento é novo?
                             <i class="ph ph-caret-down"></i>
                         </button>
                         <div class="accordion-content">
-                            <p>O Edifício Ipanema já está pronto para morar! Agende sua visita e mude-se imediatamente.
-                            </p>
+                            <p>Sim, é um imóvel novo, nunca habitado (primeiro dono).</p>
                         </div>
                     </div>
                     <div class="accordion-item">
                         <button class="accordion-header">
-                            Aceita permuta como parte do pagamento?
+                            Quantas vagas de garagem?
                             <i class="ph ph-caret-down"></i>
                         </button>
                         <div class="accordion-content">
-                            <p>Analisamos propostas de permuta por imóveis de menor valor e veículos. Entre em contato
-                                para avaliação.</p>
+                            <p>São 3 vagas de garagem cobertas e soltas.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Aceita financiamento?
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Sim, trabalhamos com todos os bancos para aprovação do seu crédito.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Como agendar uma visita?
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>Basta preencher o formulário abaixo e falar diretamente comigo.</p>
                         </div>
                     </div>
                     <div class="accordion-item">
@@ -483,7 +554,18 @@
                             <i class="ph ph-caret-down"></i>
                         </button>
                         <div class="accordion-content">
-                            <p>Sim, o condomínio é Pet Friendly e conta até com áreas de passeio próximas.</p>
+                            <p>Sim, o condomínio é Pet Friendly e conta com áreas de passeio próximas ao empreendimento.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <button class="accordion-header">
+                            Qual o prazo de entrega do imóvel?
+                            <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <p>O Edifício Ipanema já está pronto para morar! Agende sua visita e mude-se imediatamente.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -491,25 +573,6 @@
         </div>
     </section>
 
-    <!-- Section 8: CTA Final + Form -->
-    <section class="section section--dark" id="cta-final">
-        <div class="container text-center" data-aos="fade-up">
-            <h2 class="cta-title">Pronto para morar no melhor do Jockey?</h2>
-            <p class="cta-subtitle">Preencha seus dados abaixo para agendar sua visita exclusiva.</p>
-
-            <form id="lead-form" class="cta-form">
-                <div class="form-group">
-                    <input type="text" id="name" name="name" placeholder="Seu Nome Completo" required>
-                </div>
-                <div class="form-group">
-                    <input type="tel" id="phone" name="phone" placeholder="Seu WhatsApp (com DDD)" required>
-                </div>
-                <button type="submit" class="btn btn--primary btn--lg btn--white">
-                    Agendar Visita Agora
-                    <i class="ph ph-arrow-right"></i>
-                </button>
-            </form>
-        </div>
     </section>
 
     <!-- Qualification Modal -->
@@ -521,7 +584,18 @@
                 <h3>Estamos quase lá!</h3>
                 <p>Responda rápido para personalizarmos seu atendimento.</p>
 
-                <form id="quiz-form">
+                <form id="quiz-form" name="qualification-ipanema" method="POST" action="/obrigado.html"
+                    data-netlify="true" netlify-honeypot="bot-field">
+                    <!-- OBRIGATÓRIO para AJAX -->
+                    <input type="hidden" name="form-name" value="qualification-ipanema">
+
+                    <!-- Honeypot -->
+                    <p hidden><label>Não preencha: <input name="bot-field"></label></p>
+
+                    <!-- Hidden inputs para vincular ao lead -->
+                    <input type="hidden" name="lead_name" id="quiz-lead-name">
+                    <input type="hidden" name="lead_phone" id="quiz-lead-phone">
+
                     <div class="quiz-question">
                         <label>Qual sua urgência para adquirir o imóvel?</label>
                         <div class="quiz-options">
@@ -566,6 +640,7 @@
                         </div>
                     </div>
 
+                    <div class="form-feedback"></div>
                     <button type="submit" class="btn btn--primary btn--full">Concluir Agendamento</button>
                 </form>
             </div>
@@ -607,6 +682,9 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- intl-tel-input JS -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.10/build/js/intlTelInput.min.js"></script>
 
     <!-- Main Script -->
     <script src="script.js"></script>
