@@ -6,11 +6,11 @@
 - CTA: Agendar Visita Exclusiva
 
 ## Seção: Para Quem é Este Imóvel
-- Título: O Lar Que Você e Sua Família Merecem
+- Título: Para quem busca um apartamento exclusivo no Jockey
 - Conteúdo:
   - Para famílias que buscam espaço, conforto e a privacidade de 3 suítes plenas.
-  - Para quem exige a melhor localização de Teresina, perto de tudo no Jockey.
-  - Para pais que valorizam a proximidade com as melhores escolas (Lerote, Dom Barreto).
+  - Para quem exige a melhor localização de Teresina, perto de tudo na área nobre da cidade.
+  - Para pais que valorizam a proximidade com as melhores escolas.
   - Para quem não abre mão de um imóvel novo e pronto para morar.
 
 ## Seção: O Apartamento
@@ -21,7 +21,7 @@
   - Ampla Sala de Estar e Jantar integradas.
   - Varanda na Sala e Varanda exclusiva no Quarto Principal.
   - Cozinha espaçosa com área de serviço e dependência completa.
-  - 3 Vagas de garagem + Depósito individual.
+  - Área de lazer completa.
   - Imóvel novo (primeiro dono), pronto para morar.
 
 ## Seção: Lazer e Convivência
@@ -39,7 +39,7 @@
 - Conteúdo:
   - Endereço Nobre: Rua Epaminondas Castelo Branco, Jockey Club.
   - A apenas 20m da Av. Jóquei Clube.
-  - Vizinho aos melhores colégios: Lerote, Dom Barreto, Bright Bee.
+  - Vizinho aos melhores colégios da cidade: Lerote, Dom Barreto, Bright Bee.
   - Próximo a supermercados, academias, pet shops e farmácias.
   - Cercado pelos melhores restaurantes da cidade.
 

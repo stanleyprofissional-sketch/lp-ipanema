@@ -23,10 +23,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
     <!-- intl-tel-input CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23.0.10/build/css/intlTelInput.css">
+
+
 </head>
 
 <body>
@@ -34,7 +36,10 @@
     <!-- Header -->
     <header class="header">
         <div class="container header__container">
-            <a href="#" class="logo">IPANEMA</a>
+            <a href="#" class="logo">
+                <img src="/.netlify/images?url=/images/logo-vitorsady.png&w=300&q=80" alt="Vitor Sady Logo"
+                    class="logo__img" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+            </a>
             <nav class="nav">
                 <a href="#o-apartamento" class="nav__link">O Apartamento</a>
                 <a href="#localizacao" class="nav__link">Localização</a>
@@ -47,8 +52,8 @@
     <section class="hero">
         <div class="hero__bg-container">
             <!-- Using a high-quality placeholder for luxury interior -->
-            <img src="/.netlify/images?url=https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Sala de estar de luxo" class="hero__bg-img" loading="eager">
+            <img src="/.netlify/images?url=/images/sala%20com%20varanda-ipanema.jpeg&w=2000&q=80"
+                alt="Sala de estar com varanda no Ipanema" class="hero__bg-img" loading="eager">
             <div class="hero__overlay"></div>
         </div>
 
@@ -145,8 +150,8 @@
                 </div>
                 <div class="split__image" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     <div class="image-frame">
-                        <img src="/.netlify/images?url=https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1200&auto=format&fit=crop"
-                            alt="Família feliz em casa" loading="lazy">
+                        <img src="/.netlify/images?url=/images/fachada1-ipanema.jpeg&w=1200&q=80"
+                            alt="Fachada do Edifício Ipanema" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -162,138 +167,115 @@
             </div>
 
             <div class="bento-grid">
-                <!-- Card 1: Destaque (Span 2) -->
+                <!-- Card 1: 167m² (Large) -->
                 <div class="bento-card bento-card--large" data-aos="fade-up" data-aos-delay="100">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop"
+                    <img src="/.netlify/images?url=/images/sala%20com%20varanda-ipanema.jpeg&w=1200&q=80"
                         alt="Sala ampla" class="bento-bg" loading="lazy" width="1200" height="800">
                     <div class="bento-overlay"></div>
                     <div class="bento-icon">
                         <i class="ph ph-arrows-out-cardinal"></i>
                     </div>
                     <div class="bento-content relative">
-                        <h3>167m² de área privativa</h3>
-                        <p>Amplo espaço interno distribuído inteligentemente para maximizar o conforto da sua família.
-                        </p>
+                        <h3>167m² de área privativa com acabamento de alto padrão</h3>
                     </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2: 3 Suítes -->
                 <div class="bento-card" data-aos="fade-up" data-aos-delay="200">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1616594039964-40891a909d9e?q=80&w=800&auto=format&fit=crop"
-                        alt="Suíte master" class="bento-bg" loading="lazy" width="800" height="600">
+                    <img src="/.netlify/images?url=/images/suite%20com%20varanda-ipanema.jpeg&w=800&q=80" alt="Suíte"
+                        class="bento-bg" loading="lazy" width="800" height="600">
                     <div class="bento-overlay"></div>
                     <div class="bento-icon">
                         <i class="ph ph-bed"></i>
                     </div>
                     <div class="bento-content relative">
-                        <h3>3 Suítes plenas + 1 quarto</h3>
-                        <p>Privacidade e conforto para todos os membros da família.</p>
+                        <h3>3 Suítes plenas com privacidade total para a família</h3>
                     </div>
                 </div>
 
-                <!-- Card 3 -->
+                <!-- Card 3: Sala Estar/Jantar -->
                 <div class="bento-card" data-aos="fade-up" data-aos-delay="300">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=800&auto=format&fit=crop"
-                        alt="Varanda" class="bento-bg" loading="lazy" width="800" height="600">
+                    <img src="/.netlify/images?url=/images/sala-ipanema.jpeg&w=800&q=80" alt="Sala de Estar"
+                        class="bento-bg" loading="lazy" width="800" height="600">
                     <div class="bento-overlay"></div>
                     <div class="bento-icon">
                         <i class="ph ph-armchair"></i>
                     </div>
                     <div class="bento-content relative">
-                        <h3>Varanda Integrada</h3>
-                        <p>Na sala e no quarto principal, conectando você ao exterior.</p>
+                        <h3>Ampla Sala de Estar e Jantar integradas</h3>
                     </div>
                 </div>
 
-                <!-- Card 4 -->
+                <!-- Card 4: Cozinha -->
                 <div class="bento-card" data-aos="fade-up" data-aos-delay="400">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=800&auto=format&fit=crop"
-                        alt="Garagem" class="bento-bg" loading="lazy" width="800" height="600">
-                    <div class="bento-overlay"></div>
-                    <div class="bento-icon">
-                        <i class="ph ph-car"></i>
-                    </div>
-                    <div class="bento-content relative">
-                        <h3>3 Vagas + Depósito</h3>
-                        <p>Comodidade total para seus veículos e itens extras.</p>
-                    </div>
-                </div>
-
-                <!-- Card 5 -->
-                <div class="bento-card" data-aos="fade-up" data-aos-delay="500">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=800&auto=format&fit=crop"
-                        alt="Cozinha" class="bento-bg" loading="lazy" width="800" height="600">
+                    <img src="/.netlify/images?url=/images/cozinha-ipanema.jpeg&w=800&q=80" alt="Cozinha"
+                        class="bento-bg" loading="lazy" width="800" height="600">
                     <div class="bento-overlay"></div>
                     <div class="bento-icon">
                         <i class="ph ph-cooking-pot"></i>
                     </div>
                     <div class="bento-content relative">
-                        <h3>Cozinha Espaçosa + DCE</h3>
-                        <p>Funcionalidade completa para o dia a dia e serviço.</p>
+                        <h3>Cozinha espaçosa com área de serviço e dependência completa</h3>
+                    </div>
+                </div>
+
+                <!-- Card 5: Área de Lazer (Atualizado) -->
+                <div class="bento-card" data-aos="fade-up" data-aos-delay="500">
+                    <img src="/.netlify/images?url=/images/piscina-ipanema.jpeg&w=800&q=80" alt="Piscina"
+                        class="bento-bg" loading="lazy" width="800" height="600">
+                    <div class="bento-overlay"></div>
+                    <div class="bento-icon">
+                        <i class="ph ph-swimming-pool"></i>
+                    </div>
+                    <div class="bento-content relative">
+                        <h3>Área de lazer completa</h3>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section 4: Galeria de Ambientes (Carousel) -->
+    <!-- Section 4: Explore Seu Novo Lar (Video Tour) -->
     <section class="section section--light" id="galeria">
-        <div class="container section__header" data-aos="fade-up">
-            <span class="section__tag">Tour Virtual</span>
-            <h2 class="section__title">Explore Seu Novo Lar</h2>
-        </div>
+        <div class="container">
+            <div class="grid-split grid-split--video">
+                <div class="split__content" data-aos="fade-right"
+                    style="text-align: center; display: flex; flex-direction: column; align-items: center;">
 
-        <div class="swiper mySwiper" data-aos="fade-up" data-aos-delay="200">
-            <div class="swiper-wrapper">
-                <!-- Slide 1: Sala -->
-                <div class="swiper-slide">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop"
-                        alt="Sala de Estar Integrada" loading="lazy">
-                    <div class="slide-caption">
-                        <h3>Sala de Estar Integrada</h3>
-                        <p>Amplitude e iluminação natural em perfeita harmonia.</p>
+                    <h2 class="section__title">Explore Seu Novo Lar</h2>
+                    <p class="section__desc">
+                        Conheça detalhes deste empreendimento magnífico.
+                    </p>
+                    <div class="video-highlights" style="text-align: center; align-items: center;">
+                        <div class="highlight-item" style="justify-content: center; text-align: center;">
+                            <span style="display: block; max-width: 350px; margin: 0 auto; font-size: 1rem;">Confira
+                                o vídeo e detalhes<br>desse investimento perfeito para você</span>
+                        </div>
+
                     </div>
+
                 </div>
-                <!-- Slide 2: Suíte Master -->
-                <div class="swiper-slide">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1616594039964-40891a909d9e?q=80&w=1200&auto=format&fit=crop"
-                        alt="Suíte Master" loading="lazy">
-                    <div class="slide-caption">
-                        <h3>Suíte Master</h3>
-                        <p>O seu refúgio particular com acabamento premium.</p>
+                <div class="split__video" data-aos="fade-left">
+                    <div class="video-container-vertical">
+                        <div class="video-wrapper">
+                            <video class="video-element" loop playsinline
+                                poster="/.netlify/images?url=/images/fachada1-ipanema.jpeg&w=800&q=80"
+                                style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;">
+                                <source src="/images/video-ipanema.MOV" type="video/quicktime">
+                                <source src="/images/video-ipanema.MOV" type="video/mp4">
+                                Seu navegador não suporta vídeos.
+                            </video>
+                            <div class="video-play-btn">
+                                <i class="ph-fill ph-play" style="font-size: 5rem; color: white;"></i>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- Slide 3: Varanda -->
-                <div class="swiper-slide">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1560185007-cde436f6a4d0?q=80&w=1200&auto=format&fit=crop"
-                        alt="Varanda Gourmet" loading="lazy">
-                    <div class="slide-caption">
-                        <h3>Varanda Gourmet</h3>
-                        <p>O espaço perfeito para receber amigos e família.</p>
-                    </div>
-                </div>
-                <!-- Slide 4: Cozinha -->
-                <div class="swiper-slide">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1200&auto=format&fit=crop"
-                        alt="Cozinha Espaçosa" loading="lazy">
-                    <div class="slide-caption">
-                        <h3>Cozinha Espaçosa</h3>
-                        <p>Design funcional para suas criações gastronômicas.</p>
-                    </div>
-                </div>
-                <!-- Slide 5: Banheiro -->
-                <div class="swiper-slide">
-                    <img src="/.netlify/images?url=https://images.unsplash.com/photo-1552321988-5100ba27850c?q=80&w=1200&auto=format&fit=crop"
-                        alt="Banheiros de Alto Padrão" loading="lazy">
-                    <div class="slide-caption">
-                        <h3>Acabamento Premium</h3>
-                        <p>Metais e louças de primeira linha em todos os banheiros.</p>
-                    </div>
+                    <a href="#contato" class="btn btn--accent btn--lg"
+                        style="margin-top: 2rem; display: table; margin-left: auto; margin-right: auto;">
+                        Quero Visitar Pessoalmente
+                    </a>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
@@ -305,73 +287,63 @@
                 <h2 class="section__title">Lazer de Resort, Privacidade de Casa</h2>
             </div>
 
-            <div class="leisure-list">
-                <!-- Item 1: Piscina -->
-                <div class="leisure-item">
-                    <div class="leisure-image" data-aos="fade-right">
-                        <img src="/.netlify/images?url=https://images.unsplash.com/photo-1572331165267-854da2dc72af?q=80&w=800&auto=format&fit=crop"
-                            alt="Piscina Adulto e Infantil" loading="lazy">
+            <div class="leisure-cards-grid">
+                <!-- Card 1: Piscina -->
+                <div class="leisure-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="leisure-card__icon">
+                        <i class="ph ph-swimming-pool"></i>
                     </div>
-                    <div class="leisure-content" data-aos="fade-left">
-                        <h3>Piscina com Deck Molhado</h3>
-                        <p>Relaxe nos dias de sol ou aproveite para se exercitar na raia semi-olímpica.</p>
-                        <ul class="leisure-features">
-                            <li><i class="ph ph-check-circle"></i> Raia de 25m</li>
-                            <li><i class="ph ph-check-circle"></i> Deck Solarium</li>
-                            <li><i class="ph ph-check-circle"></i> Piscina Infantil Separada</li>
-                        </ul>
-                    </div>
+                    <h3 class="leisure-card__title">Piscina com Deck Molhado</h3>
+                    <p class="leisure-card__desc">Relaxe nos dias de sol ou aproveite para se exercitar na raia
+                        semi-olimpica.</p>
+                    <ul class="leisure-card__features">
+                        <li><i class="ph ph-check-circle"></i> Raia de 25m</li>
+                        <li><i class="ph ph-check-circle"></i> Deck Solarium</li>
+                        <li><i class="ph ph-check-circle"></i> Piscina Infantil Separada</li>
+                    </ul>
                 </div>
 
-                <!-- Item 2: Área Gourmet (Reverse) -->
-                <div class="leisure-item leisure-item--reverse">
-                    <div class="leisure-image" data-aos="fade-left">
-                        <img src="/.netlify/images?url=https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=800&auto=format&fit=crop"
-                            alt="Espaço Gourmet" loading="lazy">
+                <!-- Card 2: Espaco Gourmet -->
+                <div class="leisure-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="leisure-card__icon">
+                        <i class="ph ph-fork-knife"></i>
                     </div>
-                    <div class="leisure-content" data-aos="fade-right">
-                        <h3>Espaço Gourmet Integrado</h3>
-                        <p>O cenário ideal para seus eventos, totalmente equipado e decorado.</p>
-                        <ul class="leisure-features">
-                            <li><i class="ph ph-check-circle"></i> Churrasqueira a Carvão</li>
-                            <li><i class="ph ph-check-circle"></i> Forno de Pizza</li>
-                            <li><i class="ph ph-check-circle"></i> Climatizado</li>
-                        </ul>
-                    </div>
+                    <h3 class="leisure-card__title">Espaco Gourmet Integrado</h3>
+                    <p class="leisure-card__desc">O cenario ideal para seus eventos, totalmente equipado e decorado.</p>
+                    <ul class="leisure-card__features">
+                        <li><i class="ph ph-check-circle"></i> Churrasqueira a Carvao</li>
+                        <li><i class="ph ph-check-circle"></i> Forno de Pizza</li>
+                        <li><i class="ph ph-check-circle"></i> Climatizado</li>
+                    </ul>
                 </div>
 
-                <!-- Item 3: Salão de Festas -->
-                <div class="leisure-item">
-                    <div class="leisure-image" data-aos="fade-right">
-                        <img src="/.netlify/images?url=https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=800&auto=format&fit=crop"
-                            alt="Salão de Festas" loading="lazy">
+                <!-- Card 3: Salao de Festas -->
+                <div class="leisure-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="leisure-card__icon">
+                        <i class="ph ph-champagne"></i>
                     </div>
-                    <div class="leisure-content" data-aos="fade-left">
-                        <h3>Salão de Festas Premium</h3>
-                        <p>Sofisticação para receber seus convidados em grandes celebrações.</p>
-                        <ul class="leisure-features">
-                            <li><i class="ph ph-check-circle"></i> Capacidade para 80 pessoas</li>
-                            <li><i class="ph ph-check-circle"></i> Isolamento Acústico</li>
-                            <li><i class="ph ph-check-circle"></i> Cozinha de Apoio</li>
-                        </ul>
-                    </div>
+                    <h3 class="leisure-card__title">Salao de Festas Premium</h3>
+                    <p class="leisure-card__desc">Sofisticacao para receber seus convidados em grandes celebracoes.</p>
+                    <ul class="leisure-card__features">
+                        <li><i class="ph ph-check-circle"></i> Capacidade para 80 pessoas</li>
+                        <li><i class="ph ph-check-circle"></i> Isolamento Acustico</li>
+                        <li><i class="ph ph-check-circle"></i> Cozinha de Apoio</li>
+                    </ul>
                 </div>
 
-                <!-- Item 4: Academia (Reverse) -->
-                <div class="leisure-item leisure-item--reverse">
-                    <div class="leisure-image" data-aos="fade-left">
-                        <img src="/.netlify/images?url=https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop"
-                            alt="Academia Completa" loading="lazy">
+                <!-- Card 4: Academia -->
+                <div class="leisure-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="leisure-card__icon">
+                        <i class="ph ph-barbell"></i>
                     </div>
-                    <div class="leisure-content" data-aos="fade-right">
-                        <h3>Academia & Esportes</h3>
-                        <p>Mantenha a forma sem sair de casa com equipamentos de última geração.</p>
-                        <ul class="leisure-features">
-                            <li><i class="ph ph-check-circle"></i> Fitness Center Equipado</li>
-                            <li><i class="ph ph-check-circle"></i> Quadra Poliesportiva</li>
-                            <li><i class="ph ph-check-circle"></i> Espaço Pilates</li>
-                        </ul>
-                    </div>
+                    <h3 class="leisure-card__title">Academia & Esportes</h3>
+                    <p class="leisure-card__desc">Mantenha a forma sem sair de casa com equipamentos de ultima geracao.
+                    </p>
+                    <ul class="leisure-card__features">
+                        <li><i class="ph ph-check-circle"></i> Fitness Center Equipado</li>
+                        <li><i class="ph ph-check-circle"></i> Quadra Poliesportiva</li>
+                        <li><i class="ph ph-check-circle"></i> Espaco Pilates</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -481,7 +453,7 @@
                 </div>
             </div>
 
-            <div class="investment-form" data-aos="fade-up" data-aos-delay="150">
+            <div class="investment-form" id="contato" data-aos="fade-up" data-aos-delay="150">
                 <h3 class="investment-form__title">Agende sua Visita Exclusiva</h3>
                 <p class="investment-form__desc">Preencha seus dados para agendar visita ou falar com o corretor.</p>
                 <form id="lead-form" name="lead-ipanema" method="POST" action="/obrigado.html" data-netlify="true"
@@ -662,17 +634,20 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="logo">IPANEMA</span>
-                    <p>Edifício Residencial de Alto Padrão</p>
+                    <a href="#" class="logo">
+                        <img src="/.netlify/images?url=/images/logo-vitorsady.png&w=300&q=80" alt="Vitor Sady Logo"
+                            class="logo__img" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+                    </a>
+                    <p>Imóveis de Alto Padrão</p>
                 </div>
                 <div class="footer-contact">
                     <strong>Vitor Sady</strong>
-                    <span>Corretor de Imóveis - CRECI 1234</span>
-                    <a href="tel:+5586999999999" class="footer-phone">+55 (86) 99999-9999</a>
+                    <span>Corretor de Imóveis - CRECI 1688-PI</span>
+                    <a href="tel:+5586999910357" class="footer-phone">+55 86 99991-0357</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Edifício Ipanema. Todos os direitos reservados.</p>
+                <p>&copy; 2026 Vitor Sady Business. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>

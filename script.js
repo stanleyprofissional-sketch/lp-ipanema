@@ -55,6 +55,7 @@ document.querySelectorAll('.accordion-header').forEach(function (button) {
 
 document.addEventListener('DOMContentLoaded', function () {
     initForms();
+    initVideoControl();
 });
 
 // Store lead data globally to pass to quiz
@@ -247,6 +248,46 @@ document.addEventListener('keydown', (e) => {
         closeQuizModal();
     }
 });
+
+// ==========================================
+// Video Section Control
+// ==========================================
+
+function initVideoControl() {
+    const videoWrapper = document.querySelector('.video-wrapper');
+    const video = videoWrapper?.querySelector('video');
+    const playBtn = videoWrapper?.querySelector('.video-play-btn');
+
+    if (videoWrapper && video) {
+        const icon = playBtn?.querySelector('i');
+
+        videoWrapper.addEventListener('click', () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+
+        video.addEventListener('play', () => {
+            videoWrapper.classList.add('playing');
+            if (icon) {
+                icon.classList.remove('ph-play');
+                icon.classList.add('ph-pause');
+            }
+        });
+
+        video.addEventListener('pause', () => {
+            videoWrapper.classList.remove('playing');
+            if (icon) {
+                icon.classList.remove('ph-pause');
+                icon.classList.add('ph-play');
+            }
+        });
+
+
+    }
+}
 
 // ==========================================
 // Bolten.io CRM Integration
