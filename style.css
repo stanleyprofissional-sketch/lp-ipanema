@@ -1912,3 +1912,34 @@ a {
         width: auto !important;
     }
 }
+
+/* Final Mobile Refinements (Hyphens, Icons, Map Height) added by Agent */
+@media (max-width: 768px) {
+    /* Hyphens: Prevent word breaking */
+    h1, h2, h3, h4, .section__title, .leisure-card__title, .leisure-card__desc {
+        hyphens: none !important;
+        -webkit-hyphens: none !important;
+        word-break: normal !important;
+    }
+
+    /* Leisure Icons +10% */
+    .leisure-card__icon i {
+        /* Assuming base is approx 3rem, increasing to 3.3rem or scaling */
+        transform: scale(1.1);
+        display: inline-block; /* Required for transform */
+    }
+
+    /* Map Height: Reduce by ~20% (from 600px to 480px) */
+    .location-map iframe {
+        height: 480px !important;
+    }
+    
+    /* Google Maps Button: Move up slightly */
+    .location-list a[href*="google.com/maps"].btn--outline {
+        margin-top: 1rem !important; /* Reduced from 2rem */
+        /* Ensure previous centering rules apply */
+        grid-column: 1 / -1 !important;
+        justify-self: center !important;
+        display: inline-flex !important;
+    }
+}
