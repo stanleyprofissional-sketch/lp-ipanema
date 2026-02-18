@@ -1943,3 +1943,15 @@ a {
         display: inline-flex !important;
     }
 }
+
+/* Visibility Utilities for Button Placement added by Agent */
+@media (max-width: 768px) {
+    .desktop-only {
+        display: none !important;
+    }
+}
+@media (min-width: 769px) {
+    .mobile-only {
+        display: none !important;
+    }
+}
