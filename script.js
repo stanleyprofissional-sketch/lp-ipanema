@@ -293,6 +293,54 @@ function initVideoControl() {
 // Bolten.io CRM Integration
 // ==========================================
 
+// ==========================================
+// Scroll Depth Tracking (50%, 75%, 90%)
+// ==========================================
+
+(function () {
+    const thresholds = [50, 75, 90];
+    const fired = {};
+
+    function getScrollPercent() {
+        const el = document.documentElement;
+        const scrollTop = window.scrollY || el.scrollTop;
+        const scrollHeight = el.scrollHeight - el.clientHeight;
+        return scrollHeight > 0 ? Math.round((scrollTop / scrollHeight) * 100) : 0;
+    }
+
+    function onScroll() {
+        const pct = getScrollPercent();
+        thresholds.forEach(function (threshold) {
+            if (!fired[threshold] && pct >= threshold) {
+                fired[threshold] = true;
+
+                // Meta Pixel
+                if (window.fbq) {
+                    fbq('trackCustom', 'ScrollDepth', { depth: threshold + '%' });
+                }
+
+                // GTM dataLayer
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'scroll_depth',
+                    scroll_threshold: threshold + '%'
+                });
+            }
+        });
+
+        // Remove listener quando todos dispararam
+        if (Object.keys(fired).length === thresholds.length) {
+            window.removeEventListener('scroll', onScroll);
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// ==========================================
+// Bolten.io CRM Integration
+// ==========================================
+
 async function syncToBolten(data) {
     try {
         console.log('Sincronizando com Bolten.io...');
