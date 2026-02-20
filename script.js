@@ -126,6 +126,8 @@ function initForms() {
                     openQuizModal();
                     leadForm.reset();
                     if (window.fbq) window.fbq('track', 'Lead'); // Facebook Pixel
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({ event: 'Contact' }); // GTM
                 } else {
                     throw new Error('Erro no envio');
                 }
@@ -172,7 +174,8 @@ function initForms() {
                 if (response.ok) {
                     // Success: Show Success Step
                     showQuizSuccess();
-                    if (window.fbq) window.fbq('track', 'CompleteRegistration');
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({ event: 'FormCompleted' }); // GTM
 
                     // Sync to Bolten CRM (Update with Quiz Data)
                     syncToBolten({
