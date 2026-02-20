@@ -10,93 +10,174 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5DJ7BKPL');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Meta Pixel -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2383318495519826');
+        fbq('track', 'PageView');
+        fbq('track', 'CompleteRegistration');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2383318495519826&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel -->
+
     <style>
-        .thank-you-page {
+        .thank-you-wrapper {
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .thank-you-main {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: var(--color-bg);
             text-align: center;
-            padding: 2rem;
+            padding: 6rem 2rem;
         }
 
         .thank-you-content {
-            max-width: 600px;
+            max-width: 640px;
+            text-align: center;
+        }
+
+        .thank-you-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
         }
 
         .thank-you-icon {
-            font-size: 4rem;
+            font-size: 2.5rem;
             color: var(--color-primary);
-            margin-bottom: 1.5rem;
+            flex-shrink: 0;
+            line-height: 1;
         }
 
         .thank-you-title {
-            font-size: 2.5rem;
-            color: var(--color-primary);
-            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            color: var(--color-heading, var(--color-primary));
+            margin: 0;
             font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         .thank-you-text {
-            font-size: 1.125rem;
+            font-size: 1rem;
             color: var(--color-text-muted);
-            margin-bottom: 2rem;
+            line-height: 1.7;
         }
 
-        .countdown {
-            font-weight: 600;
-            color: var(--color-primary);
+        @media (max-width: 600px) {
+            .thank-you-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .thank-you-title {
+                font-size: 1.25rem;
+            }
+
+            .thank-you-icon {
+                font-size: 2rem;
+            }
         }
     </style>
-
-    <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
 <body>
-    <div class="thank-you-page">
-        <div class="thank-you-content">
-            <div class="thank-you-icon">
-                <i class="ph ph-check-circle"></i>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DJ7BKPL" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="thank-you-wrapper">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="container header__container">
+                <a href="/" class="logo">
+                    <img src="/.netlify/images?url=/images/logo-vitorsady.png&w=300&q=80" alt="Vitor Sady Logo"
+                        class="logo__img" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+                </a>
             </div>
-            <h1 class="thank-you-title">Recebemos seus dados!</h1>
-            <p class="thank-you-text">
-                Obrigado pelo interesse no Edifício Ipanema. Em breve, nosso especialista entrará em contato pelo
-                WhatsApp.<br><br>
-                Você será redirecionado para a página inicial em <span id="countdown">10</span> segundos...
-            </p>
-            <a href="/" class="btn btn--primary" id="btn-home">Voltar para o Início</a>
-        </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="thank-you-main">
+            <div class="thank-you-content">
+                <div class="thank-you-header">
+                    <div class="thank-you-icon">
+                        <i class="ph ph-check-circle"></i>
+                    </div>
+                    <h1 class="thank-you-title">Obrigado por solicitar sua visita ao imóvel!</h1>
+                </div>
+                <p class="thank-you-text">
+                    Iremos analisar suas informações e logo entraremos em contato com você.
+                </p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <a href="/" class="logo">
+                            <img src="/.netlify/images?url=/images/logo-vitorsady.png&w=300&q=80" alt="Vitor Sady Logo"
+                                class="logo__img" style="height: 80px; width: auto; filter: brightness(0) invert(1);">
+                        </a>
+                        <p>Imóveis de Alto Padrão</p>
+                    </div>
+                    <div class="footer-contact">
+                        <strong>Vitor Sady</strong>
+                        <span>Corretor de Imóveis - CRECI 1688-PI</span>
+                        <a href="tel:+5586999910357" class="footer-phone">+55 86 99991-0357</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Vitor Sady Business. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            let count = 10;
-            const countdownEl = document.getElementById('countdown');
-            const linkDestino = '/';
-
-            const timer = setInterval(() => {
-                count--;
-                if (countdownEl) countdownEl.textContent = count;
-                if (count <= 0) {
-                    clearInterval(timer);
-                    window.location.href = linkDestino;
-                }
-            }, 1000);
-
-            // Meta Pixel (CompleteRegistration)
-            if (typeof fbq === 'function') {
-                fbq('track', 'CompleteRegistration');
-            }
-        });
-    </script>
 </body>
 
 </html>

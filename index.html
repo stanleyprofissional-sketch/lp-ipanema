@@ -44,7 +44,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -617,27 +617,16 @@
                     </div>
 
                     <div class="quiz-question">
-                        <label>Qual a sua renda familiar mensal?</label>
+                        <label>A renda familiar ideal para adquirir esse imóvel é de R$35 mil. Você acha que é a
+                            sua?</label>
                         <div class="quiz-options">
                             <label class="quiz-option">
-                                <input type="radio" name="income" value="Até 10k" required>
-                                <span>Até R$ 10.000</span>
+                                <input type="radio" name="income" value="Sim" required>
+                                <span>Sim</span>
                             </label>
                             <label class="quiz-option">
-                                <input type="radio" name="income" value="10k-15k">
-                                <span>R$ 10.000 a R$ 15.000</span>
-                            </label>
-                            <label class="quiz-option">
-                                <input type="radio" name="income" value="15k-25k">
-                                <span>R$ 15.000 a R$ 25.000</span>
-                            </label>
-                            <label class="quiz-option">
-                                <input type="radio" name="income" value="25k-35k">
-                                <span>R$ 25.000 a R$ 35.000</span>
-                            </label>
-                            <label class="quiz-option">
-                                <input type="radio" name="income" value="+35k">
-                                <span>Mais de R$ 35.000</span>
+                                <input type="radio" name="income" value="Não">
+                                <span>Não</span>
                             </label>
                         </div>
                     </div>
@@ -656,6 +645,17 @@
                     pelo WhatsApp para confirmar o horário.</p>
                 <button class="btn btn--primary btn--outline modal-close-btn">Fechar</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="modal-overlay" aria-hidden="true" style="z-index: 1000;">
+        <div class="lightbox-content"
+            style="position: relative; max-width: 90%; max-height: 90vh; display: flex; justify-content: center; align-items: center;">
+            <button class="lightbox-close" aria-label="Fechar"
+                style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 2rem; cursor: pointer;">&times;</button>
+            <img id="lightbox-img" src="" alt="Imagem ampliada"
+                style="max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
         </div>
     </div>
 
