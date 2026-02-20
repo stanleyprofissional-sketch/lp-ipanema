@@ -172,19 +172,20 @@ function initForms() {
                 });
 
                 if (response.ok) {
-                    // Success: Show Success Step
-                    showQuizSuccess();
                     window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({ event: 'FormCompleted' }); // GTM
+                    window.dataLayer.push({ event: 'formulario_enviado' }); // GTM
 
                     // Sync to Bolten CRM (Update with Quiz Data)
-                    syncToBolten({
+                    await syncToBolten({
                         name: currentLeadData.name,
                         phone: currentLeadData.phone,
                         urgency: formData.get('urgency'),
                         income: formData.get('income'),
                         status: 'Lead Qualificado'
                     });
+
+                    // Redireciona para página de obrigado
+                    window.location.href = '/obrigado.html';
                 } else {
                     throw new Error('Erro no envio');
                 }
