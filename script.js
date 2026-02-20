@@ -248,10 +248,74 @@ if (quizModal) {
 }
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && quizModal && quizModal.classList.contains('open')) {
-        closeQuizModal();
+    if (e.key === 'Escape') {
+        if (quizModal && quizModal.classList.contains('open')) {
+            closeQuizModal();
+        }
+        if (lightboxModal && lightboxModal.classList.contains('open')) {
+            closeLightbox();
+        }
     }
 });
+
+// ==========================================
+// Lightbox Gallery Logic
+// ==========================================
+const bentoCards = document.querySelectorAll('.bento-card');
+const lightboxModal = document.getElementById('lightbox-modal');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCloseBtn = document.querySelector('.lightbox-close');
+
+function openLightbox(imgSrc) {
+    if (!lightboxModal || !lightboxImg) return;
+
+    // Configura a imagem (removendo parâmetros de resize se for CDN, ou mantendo a URL original se for local)
+    // Para simplificar, vamos pegar o src atual
+    lightboxImg.src = imgSrc;
+
+    lightboxModal.classList.add('open');
+    lightboxModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    if (!lightboxModal) return;
+    lightboxModal.classList.remove('open');
+    lightboxModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+
+    // Limpa a fonte da imagem após uma breve pausa para a animação
+    setTimeout(() => {
+        if (lightboxImg) lightboxImg.src = '';
+    }, 300);
+}
+
+// Adiciona listener em cada card do Bento Grid
+bentoCards.forEach(card => {
+    // Muda cursor para indicar que é clicável
+    card.style.cursor = 'pointer';
+
+    card.addEventListener('click', () => {
+        const bgImg = card.querySelector('.bento-bg');
+        if (bgImg) {
+            // Remove w e q parameters para carregar a original
+            let fullImgSrc = bgImg.src;
+            fullImgSrc = fullImgSrc.replace(/&w=\d+/, '');
+            fullImgSrc = fullImgSrc.replace(/&q=\d+/, '');
+
+            openLightbox(fullImgSrc);
+        }
+    });
+});
+
+if (lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal || e.target === lightboxCloseBtn) {
+            closeLightbox();
+        }
+    });
+}
+
 
 // ==========================================
 // Video Section Control

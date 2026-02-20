@@ -621,12 +621,12 @@
                             sua?</label>
                         <div class="quiz-options">
                             <label class="quiz-option">
-                                <input type="radio" name="income" value="a. Sim" required>
-                                <span>a. Sim</span>
+                                <input type="radio" name="income" value="Sim" required>
+                                <span>Sim</span>
                             </label>
                             <label class="quiz-option">
-                                <input type="radio" name="income" value="b. Não">
-                                <span>b. Não</span>
+                                <input type="radio" name="income" value="Não">
+                                <span>Não</span>
                             </label>
                         </div>
                     </div>
@@ -645,6 +645,17 @@
                     pelo WhatsApp para confirmar o horário.</p>
                 <button class="btn btn--primary btn--outline modal-close-btn">Fechar</button>
             </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="modal-overlay" aria-hidden="true" style="z-index: 1000;">
+        <div class="lightbox-content"
+            style="position: relative; max-width: 90%; max-height: 90vh; display: flex; justify-content: center; align-items: center;">
+            <button class="lightbox-close" aria-label="Fechar"
+                style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 2rem; cursor: pointer;">&times;</button>
+            <img id="lightbox-img" src="" alt="Imagem ampliada"
+                style="max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.5);">
         </div>
     </div>
 
