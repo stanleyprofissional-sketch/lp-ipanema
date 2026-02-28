@@ -448,7 +448,7 @@ function initVideoControl() {
 // N8N Integration
 // ==========================================
 
-const N8N_WEBHOOK_URL = 'https://vitorsady-n8n-editor.duk7p3.easypanel.host/webhook/novo-lead';
+const N8N_WEBHOOK_URL = 'https://vitorsady-n8n-editor.duk7p3.easypanel.host/webhook-test/novo-lead';
 
 async function sendToN8N(data) {
     try {
