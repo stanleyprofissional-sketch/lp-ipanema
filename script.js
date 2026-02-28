@@ -53,6 +53,16 @@ document.querySelectorAll('.accordion-header').forEach(function (button) {
 // Lead Form + Qualification Modal Logic
 // ==========================================
 
+// ==========================================
+// UTM Capture
+// ==========================================
+const _urlParams = new URLSearchParams(window.location.search);
+const utmParams = {
+    utm_source: _urlParams.get('utm_source') || '',
+    utm_medium: _urlParams.get('utm_medium') || '',
+    utm_content: _urlParams.get('utm_content') || '',
+};
+
 document.addEventListener('DOMContentLoaded', function () {
     initForms();
     initVideoControl();
@@ -127,7 +137,12 @@ function initForms() {
                     leadForm.reset();
                     if (window.fbq) window.fbq('track', 'Lead'); // Facebook Pixel
                     window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({ event: 'Contact' }); // GTM
+                    window.dataLayer.push({
+                        event: 'Contact',
+                        utm_source: utmParams.utm_source,
+                        utm_medium: utmParams.utm_medium,
+                        utm_content: utmParams.utm_content,
+                    }); // GTM
                 } else {
                     throw new Error('Erro no envio');
                 }
@@ -172,20 +187,40 @@ function initForms() {
                 });
 
                 if (response.ok) {
+                    // Success: Show Success Step
+                    showQuizSuccess();
+
+                    // GTM: FormCompleted com UTMs
                     window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({ event: 'formulario_enviado' }); // GTM
+                    window.dataLayer.push({
+                        event: 'FormCompleted',
+                        utm_source: utmParams.utm_source,
+                        utm_medium: utmParams.utm_medium,
+                        utm_content: utmParams.utm_content,
+                    });
+
+                    // N8N: enviar apenas se renda = Sim
+                    const incomeValue = formData.get('income');
+                    if (incomeValue === 'Sim') {
+                        sendToN8N({
+                            name: currentLeadData.name,
+                            phone: currentLeadData.phone,
+                            urgency: formData.get('urgency'),
+                            income: incomeValue,
+                            utm_source: utmParams.utm_source,
+                            utm_medium: utmParams.utm_medium,
+                            utm_content: utmParams.utm_content,
+                        });
+                    }
 
                     // Sync to Bolten CRM (Update with Quiz Data)
-                    await syncToBolten({
+                    syncToBolten({
                         name: currentLeadData.name,
                         phone: currentLeadData.phone,
                         urgency: formData.get('urgency'),
                         income: formData.get('income'),
                         status: 'Lead Qualificado'
                     });
-
-                    // Redireciona para página de obrigado
-                    window.location.href = '/obrigado.html';
                 } else {
                     throw new Error('Erro no envio');
                 }
@@ -408,6 +443,25 @@ function initVideoControl() {
 // ==========================================
 // Bolten.io CRM Integration
 // ==========================================
+
+// ==========================================
+// N8N Integration
+// ==========================================
+
+const N8N_WEBHOOK_URL = 'https://vitorsady-n8n-editor.duk7p3.easypanel.host/webhook/novo-lead';
+
+async function sendToN8N(data) {
+    try {
+        await fetch(N8N_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        console.log('N8N: dados enviados com sucesso.');
+    } catch (error) {
+        console.error('N8N: erro ao enviar dados:', error);
+    }
+}
 
 async function syncToBolten(data) {
     try {
