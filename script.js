@@ -187,9 +187,6 @@ function initForms() {
                 });
 
                 if (response.ok) {
-                    // Success: Show Success Step
-                    showQuizSuccess();
-
                     // GTM: FormCompleted com UTMs
                     window.dataLayer = window.dataLayer || [];
                     window.dataLayer.push({
@@ -221,6 +218,9 @@ function initForms() {
                         income: formData.get('income'),
                         status: 'Lead Qualificado'
                     });
+
+                    // Redirecionar para página de obrigado
+                    window.location.href = '/obrigado.html';
                 } else {
                     throw new Error('Erro no envio');
                 }
