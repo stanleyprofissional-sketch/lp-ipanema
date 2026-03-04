@@ -255,6 +255,24 @@ a {
     letter-spacing: -0.03em;
     color: #ffffff;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero__headline-top {
+    font-size: 0.78em;
+    /* 0.65 * 1.2 = 0.78 (20% de aumento sobre a base anterior funcional) */
+    text-transform: uppercase;
+    display: block;
+    white-space: nowrap;
+}
+
+.hero__headline-bottom {
+    font-size: 0.44em;
+    line-height: 1.2;
+    display: block;
+    margin-top: 7px;
 }
 
 .hero__subheadline {
@@ -2067,5 +2085,20 @@ a {
 @media (min-width: 769px) {
     .mobile-only {
         display: none !important;
+    }
+}
+/* Headline Responsive Refinement (Desktop +20%, Mobile -10% / +10%) */
+@media (max-width: 768px) {
+    .hero__headline-top {
+        font-size: 0.58em !important; /* ~10% menor que o 0.65 anterior */
+        white-space: nowrap !important;
+        display: block !important;
+    }
+
+    .hero__headline-bottom {
+        font-size: 0.53em !important; /* ~10% maior que o 0.48 anterior */
+        line-height: 1.2 !important;
+        display: block !important;
+        margin-top: 10px !important;
     }
 }
