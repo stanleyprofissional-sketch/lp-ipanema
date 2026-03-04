@@ -1910,18 +1910,27 @@ a {
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
+        justify-content: flex-start !important;
         height: 100%;
-        /* Ensure equal height */
+        width: 100% !important;
     }
 
-    /* Style improvements for grid items */
+    .location-icon {
+        margin: 0 auto 1rem auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        float: none !important;
+    }
+
     .location-info {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
         text-align: center !important;
-        justify-content: flex-start !important;
+        justify-content: center !important;
         width: 100% !important;
+        margin: 0 auto !important;
     }
 
     .location-item strong,
@@ -1929,6 +1938,8 @@ a {
         text-align: center !important;
         width: 100% !important;
         display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 
     .location-item strong {
