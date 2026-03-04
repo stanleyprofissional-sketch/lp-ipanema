@@ -260,6 +260,7 @@ a {
 .hero__subheadline {
     font-size: clamp(1.1rem, 1.5vw, 1.35rem);
     color: rgba(255, 255, 255, 0.95);
+    line-height: 1.2;
     margin-bottom: 3rem;
     max-width: 600px;
     margin-left: auto;
